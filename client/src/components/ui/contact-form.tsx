@@ -146,7 +146,7 @@ export default function ContactForm() {
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-lg transition"
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-lg transition duration-300 transform hover:scale-[1.02] hover:shadow-md focus:ring-4 focus:ring-primary/30 active:scale-[0.98]"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
@@ -207,16 +207,16 @@ export default function ContactForm() {
             <div>
               <h4 className="font-medium mb-4">Follow Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition">
+                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
                   <Facebook className="text-white h-5 w-5" />
                 </a>
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition">
+                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
                   <Instagram className="text-white h-5 w-5" />
                 </a>
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition">
+                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
                   <Twitter className="text-white h-5 w-5" />
                 </a>
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition">
+                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
                   <Linkedin className="text-white h-5 w-5" />
                 </a>
               </div>
