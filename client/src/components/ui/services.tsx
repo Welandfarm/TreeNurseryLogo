@@ -4,18 +4,18 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     image: "https://images.unsplash.com/photo-1611295619193-511ba6df9bf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    title: "Seedling Production",
-    description: "Large-scale production of high-quality tree seedlings for reforestation projects, landscaping, and conservation efforts."
+    title: "Indigenous Trees Nursery",
+    description: "Specializing in native Kenyan tree species for conservation projects, land restoration, and environmental preservation."
   },
   {
     image: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80", 
-    title: "Forestry Consultation",
-    description: "Expert advice on species selection, planting techniques, forest management, and sustainable practices."
+    title: "Ornamental & Fruit Trees",
+    description: "Beautiful ornamental trees for landscaping and productive fruit trees perfect for Kenyan climate and soil conditions."
   },
   {
     image: "https://images.unsplash.com/photo-1620055366299-b3e4a0a73826?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    title: "Custom Growing Programs",
-    description: "Tailored growing programs for specific species, quantities, and timelines to meet your project requirements."
+    title: "Flowers & Herbs Collection",
+    description: "Diverse selection of flowers and herbs for gardens, medicinal purposes, and culinary uses, suited to Kenya's climate."
   }
 ];
 
@@ -24,10 +24,10 @@ export default function Services() {
     <section id="services" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">Our Services</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">What We <span className="text-primary">Offer</span></h2>
           <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
           <p className="max-w-2xl mx-auto text-lg text-neutral-dark/80">
-            We offer comprehensive solutions for all your tree nursery needs, from seedling production to forestry consultation.
+            Discover our range of plants and trees carefully selected and nurtured for Kenya's unique environments.
           </p>
         </div>
         
@@ -46,8 +46,8 @@ export default function Services() {
                 <p className="text-neutral-dark/80 mb-4">
                   {service.description}
                 </p>
-                <a href="#" className="text-primary font-medium hover:text-accent flex items-center transition">
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                <a href="#" className="text-primary font-medium hover:text-accent flex items-center transition duration-300 transform hover:translate-x-1 group">
+                  Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
               </div>
             </div>
@@ -55,8 +55,8 @@ export default function Services() {
         </div>
         
         <div className="text-center mt-10">
-          <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-full transition">
-            <a href="#contact">Request a Service</a>
+          <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-8 h-auto rounded-full transition duration-300 transform hover:scale-105 hover:shadow-lg focus:ring-4 focus:ring-primary/30 active:scale-95">
+            <a href="#contact">Contact Us Today</a>
           </Button>
         </div>
       </div>

@@ -23,22 +23,19 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/">
-              <a className="font-heading font-medium hover:text-primary transition">Home</a>
+              <a className="font-heading font-medium hover:text-primary transition-colors duration-300">Home</a>
             </Link>
-            <Link href="#about">
-              <a className="font-heading font-medium hover:text-primary transition">About</a>
+            <Link href="#features">
+              <a className="font-heading font-medium hover:text-primary transition-colors duration-300">Products</a>
             </Link>
             <Link href="#services">
-              <a className="font-heading font-medium hover:text-primary transition">Services</a>
-            </Link>
-            <Link href="#gallery">
-              <a className="font-heading font-medium hover:text-primary transition">Gallery</a>
+              <a className="font-heading font-medium hover:text-primary transition-colors duration-300">Services</a>
             </Link>
             <Link href="#contact">
-              <a className="font-heading font-medium hover:text-primary transition">Contact</a>
+              <a className="font-heading font-medium hover:text-primary transition-colors duration-300">Contact</a>
             </Link>
-            <Button className="bg-primary hover:bg-secondary text-white font-heading font-medium rounded-full transition">
-              Get a Quote
+            <Button className="bg-primary hover:bg-primary/90 text-white font-heading font-medium rounded-full transition duration-300 transform hover:scale-105 active:scale-95 focus:ring-4 focus:ring-primary/30">
+              Contact Us
             </Button>
           </div>
           

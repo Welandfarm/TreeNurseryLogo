@@ -7,17 +7,17 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0">
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-neutral-dark leading-tight">
-              Nurturing <span className="text-primary">Forests</span> of Tomorrow
+              Kenya's Finest <span className="text-primary">Tree Nursery</span>
             </h1>
-            <h2 className="font-handwritten text-2xl md:text-3xl text-accent mb-6">Quality seedlings for sustainable growth</h2>
+            <h2 className="font-handwritten text-2xl md:text-3xl text-accent mb-6">Growing Kenya's future, one seedling at a time</h2>
             <p className="text-lg mb-8 text-neutral-dark/80">
-              At LittleForest, we grow premium quality tree seedlings for reforestation, landscaping, and conservation projects. Our expert team ensures every plant is healthy, robust, and ready to thrive in its new environment.
+              At LittleForest, we specialize in indigenous trees, ornamental trees, flowers, herbs, and fruit trees. Our expert team ensures every plant is healthy, robust, and perfect for Kenya's diverse environments.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-full text-center transition">
-                <a href="#services">Explore Our Services</a>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-full text-center transition duration-300 transform hover:scale-105 focus:ring-4 focus:ring-primary/30">
+                <a href="#services">Browse Our Selection</a>
               </Button>
-              <Button asChild variant="outline" className="bg-white border-2 border-primary hover:bg-primary/5 text-primary font-heading font-medium py-3 px-6 h-auto rounded-full text-center transition">
+              <Button asChild variant="outline" className="bg-white border-2 border-primary hover:bg-primary/5 text-primary font-heading font-medium py-3 px-6 h-auto rounded-full text-center transition duration-300 transform hover:scale-105 focus:ring-4 focus:ring-primary/20">
                 <a href="#contact">Contact Us</a>
               </Button>
             </div>
@@ -30,7 +30,7 @@ export default function Hero() {
                 className="w-full h-auto object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-primary/70 text-white p-4">
-                <p className="font-heading font-medium">Growing over 20+ varieties of native and exotic tree species</p>
+                <p className="font-heading font-medium">Specializing in indigenous Kenyan varieties and more</p>
               </div>
             </div>
           </div>

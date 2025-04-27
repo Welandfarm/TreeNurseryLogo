@@ -166,7 +166,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Our Location</h4>
-                    <p>123 Forest Lane, Greenville, CA 95000</p>
+                    <p>Nairobi, Kenya</p>
                   </div>
                 </div>
                 
@@ -176,7 +176,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Phone Number</h4>
-                    <p>(555) 123-4567</p>
+                    <p>+254 706 932 437</p>
                   </div>
                 </div>
                 
