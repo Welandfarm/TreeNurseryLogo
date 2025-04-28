@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Linkedin, Send } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -89,6 +90,14 @@ export default function ContactForm() {
                 <div>
                   <h4 className="font-medium text-white text-sm mb-1">Phone Number</h4>
                   <p className="text-white/80">+254 706 932 437</p>
+                  <a 
+                    href="https://wa.me/254706932437" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center text-white bg-[#25D366] hover:bg-[#128C7E] transition-colors duration-300 px-3 py-1 rounded-md mt-2 text-sm font-medium"
+                  >
+                    <FaWhatsapp className="mr-1" /> Chat on WhatsApp
+                  </a>
                 </div>
               </div>
               

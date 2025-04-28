@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Award, CheckCircle2, TreePine } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -24,7 +25,7 @@ export default function Hero() {
               <p className="text-lg mb-8 text-white/80">
                 At LittleForest in Kamureito, Bomet, we specialize in indigenous trees, ornamental trees, flowers, herbs, and fruit trees. Our expert team ensures every plant is healthy, robust, and perfect for Kenya's diverse environments.
               </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-4">
                 <Button asChild className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-md text-center transition duration-300 focus:ring-4 focus:ring-secondary/30">
                   <a href="#services" className="flex items-center">
                     Browse Our Selection
@@ -35,6 +36,14 @@ export default function Hero() {
                   <a href="#contact">Contact Us</a>
                 </Button>
               </div>
+              <a 
+                href="https://wa.me/254706932437" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors duration-300 shadow-lg"
+              >
+                <FaWhatsapp className="mr-2 text-lg" /> Chat with us on WhatsApp
+              </a>
             </div>
             <div className="md:w-1/2">
               <div className="relative rounded-md overflow-hidden shadow-xl bg-white p-1">
