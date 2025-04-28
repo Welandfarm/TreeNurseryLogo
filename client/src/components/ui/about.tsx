@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Leaf } from "lucide-react";
 
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
