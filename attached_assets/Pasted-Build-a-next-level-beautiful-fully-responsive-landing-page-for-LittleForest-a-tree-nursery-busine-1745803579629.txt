@@ -1,0 +1,99 @@
+Build a next-level, beautiful, fully responsive landing page for LittleForest, a tree nursery business.
+
+Keep the original natural color scheme (greens, browns, natural earth tones) but make it more modern and airy with lots of white space.
+
+Design the following sections:
+
+Sticky Navigation Bar
+
+Logo on the left (LittleForest logo)
+
+Menu items: Home | Trees | Blog | About | Contact
+
+Highlight the current page.
+
+Hero Section (Full Screen Height)
+
+Background: Large, soft-focus photo of a vibrant forest or young trees.
+
+Headline: "Plant Today, Grow Tomorrow"
+
+Subheadline: "Nurture your dreams with LittleForest's premium trees."
+
+Primary button: "Browse Trees" (green button)
+
+Secondary button: "Make an Inquiry" (outlined button)
+
+Smooth scroll effect down to the next section.
+
+Featured Trees Section
+
+Title: "Our Favorites"
+
+3–6 tree cards with images, names, and short, poetic descriptions.
+
+Cards should have slight hover animations (scale up a little).
+
+Why Choose LittleForest? (Trust Section)
+
+Three trust badges/icons:
+
+"Sustainably Grown"
+
+"Locally Sourced"
+
+"1000+ Trees Planted"
+
+Short sentences under each badge.
+
+About Us Section
+
+Split layout:
+
+Left: Image of tree nursery or people planting.
+
+Right: Paragraph about LittleForest's mission, sustainability, and love for nature.
+
+Mini Blog Section
+
+Title: "From Our Forest Journal"
+
+Display 3 latest blog posts with image thumbnails, titles, short excerpts, and 'Read More' links.
+
+Order & Inquiry Form Section
+
+Title: "Let's Grow Together"
+
+Short description inviting customers to reach out.
+
+Form fields: Name, Email, Phone (optional), Tree Type (dropdown), Message (textarea).
+
+Validation for email and required fields.
+
+Submit button (big, green).
+
+Footer
+
+Quick links: Home, Trees, Blog, Contact.
+
+Social media icons (Instagram, Facebook, LinkedIn).
+
+Copyright © 2025 LittleForest. All Rights Reserved.
+
+Style Guidelines:
+
+Use TailwindCSS for rapid, clean styling.
+
+Rounded cards and buttons, soft box shadows, clean sans-serif font (e.g., 'Poppins').
+
+Fade-in animations for sections as the user scrolls down.
+
+Fully mobile responsive (stacked sections on smaller screens).
+
+Technical Additions:
+
+Add a meta title and meta description for SEO ("LittleForest - Premium Trees for Every Dream").
+
+Add alt tags to every image.
+
+Optimize all images for faster loading.
