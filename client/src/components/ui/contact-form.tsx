@@ -78,7 +78,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-medium text-white text-sm mb-1">Our Location</h4>
-                  <p className="text-white/80">Nairobi, Kenya</p>
+                  <p className="text-white/80">Kamureito, Bomet, Kenya</p>
                 </div>
               </div>
               

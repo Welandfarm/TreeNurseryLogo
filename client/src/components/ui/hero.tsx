@@ -22,7 +22,7 @@ export default function Hero() {
               </h1>
               <h2 className="font-heading text-xl md:text-2xl font-medium mb-6 text-white/90">Growing Kenya's future, one seedling at a time</h2>
               <p className="text-lg mb-8 text-white/80">
-                At LittleForest, we specialize in indigenous trees, ornamental trees, flowers, herbs, and fruit trees. Our expert team ensures every plant is healthy, robust, and perfect for Kenya's diverse environments.
+                At LittleForest in Kamureito, Bomet, we specialize in indigenous trees, ornamental trees, flowers, herbs, and fruit trees. Our expert team ensures every plant is healthy, robust, and perfect for Kenya's diverse environments.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button asChild className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-md text-center transition duration-300 focus:ring-4 focus:ring-secondary/30">

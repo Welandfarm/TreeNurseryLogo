@@ -27,7 +27,7 @@ export default function Navbar() {
             </div>
             <div className="hidden md:flex items-center">
               <MapPin className="h-3 w-3 mr-1" />
-              <span>Nairobi, Kenya</span>
+              <span>Kamureito, Bomet, Kenya</span>
             </div>
           </div>
           <div className="text-xs">
