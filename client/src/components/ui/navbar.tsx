@@ -1,36 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link } from "wouter";
 import Logo from "./logo";
 import { Button } from "@/components/ui/button";
 import { Menu, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle scrolling and active section highlighting
-  useEffect(() => {
-    const handleScroll = () => {
-      // Set scrolled state for shadow effect
-      setIsScrolled(window.scrollY > 50);
-      
-      // Determine active section based on scroll position
-      const sections = ['hero', 'trees', 'blog', 'about', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section === 'hero' ? 'home' : section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -62,7 +37,7 @@ export default function Navbar() {
       </div>
 
       {/* Main navigation */}
-      <nav className={`bg-white ${isScrolled ? 'shadow-lg' : 'shadow-md'} transition-shadow duration-300`}>
+      <nav className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             {/* Logo */}
@@ -72,38 +47,20 @@ export default function Navbar() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
-              <a 
-                href="#hero" 
-                className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'home' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
-              >
+              <a href="/" className="font-heading font-medium text-foreground hover:text-primary transition-colors duration-300">
                 Home
               </a>
-              <a 
-                href="#trees" 
-                className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'trees' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
-              >
-                Trees
+              <a href="#features" className="font-heading font-medium text-foreground hover:text-primary transition-colors duration-300">
+                Products
               </a>
-              <a 
-                href="#blog" 
-                className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'blog' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
-              >
-                Blog
+              <a href="#services" className="font-heading font-medium text-foreground hover:text-primary transition-colors duration-300">
+                Services
               </a>
-              <a 
-                href="#about" 
-                className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'about' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
-              >
-                About
-              </a>
-              <a 
-                href="#contact" 
-                className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'contact' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
-              >
+              <a href="#contact" className="font-heading font-medium text-foreground hover:text-primary transition-colors duration-300">
                 Contact
               </a>
-              <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading font-medium rounded-lg transition duration-300 focus:ring-4 focus:ring-primary/30">
-                <a href="#contact">Make an Inquiry</a>
+              <Button className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium rounded-md transition duration-300 focus:ring-4 focus:ring-secondary/30">
+                Contact Us
               </Button>
             </div>
             
@@ -123,43 +80,20 @@ export default function Navbar() {
           {isMenuOpen && (
             <div className="md:hidden mt-4">
               <div className="flex flex-col space-y-4 px-2 pb-3">
-                <a 
-                  href="#hero" 
-                  className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'home' ? 'text-primary' : 'hover:text-primary'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <a href="/" className="font-heading font-medium hover:text-primary transition-colors duration-300">
                   Home
                 </a>
-                <a 
-                  href="#trees" 
-                  className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'trees' ? 'text-primary' : 'hover:text-primary'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Trees
+                <a href="#features" className="font-heading font-medium hover:text-primary transition-colors duration-300">
+                  Products
                 </a>
-                <a 
-                  href="#blog" 
-                  className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'blog' ? 'text-primary' : 'hover:text-primary'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Blog
+                <a href="#services" className="font-heading font-medium hover:text-primary transition-colors duration-300">
+                  Services
                 </a>
-                <a 
-                  href="#about" 
-                  className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'about' ? 'text-primary' : 'hover:text-primary'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About
-                </a>
-                <a 
-                  href="#contact" 
-                  className={`font-heading font-medium transition-colors duration-300 ${activeSection === 'contact' ? 'text-primary' : 'hover:text-primary'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <a href="#contact" className="font-heading font-medium hover:text-primary transition-colors duration-300">
                   Contact
                 </a>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading font-medium rounded-lg transition duration-300 w-full">
-                  <a href="#contact" onClick={() => setIsMenuOpen(false)}>Make an Inquiry</a>
+                <Button className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium rounded-md transition duration-300 w-full">
+                  Contact Us
                 </Button>
               </div>
             </div>

@@ -1,16 +1,12 @@
-interface LogoProps {
-  textColor?: string;
-}
-
-export default function Logo({ textColor }: LogoProps = {}) {
+export default function Logo() {
   return (
     <div className="flex items-center">
       <div className="mr-3">
         <svg width="44" height="44" viewBox="0 0 44 44" className="fill-current">
           <g>
             {/* Ground/Earth */}
-            <path d="M8 34 C8 34, 22 38, 36 34" strokeWidth="2" stroke={textColor === "text-white" ? "#FFFFFF" : "#5D7D4F"} fill="none" />
-            <path d="M16 34 C16 34, 22 36, 28 34" fill={textColor === "text-white" ? "#FFFFFF" : "#6A8D63"} />
+            <path d="M8 34 C8 34, 22 38, 36 34" strokeWidth="2" stroke="#5D7D4F" fill="none" />
+            <path d="M16 34 C16 34, 22 36, 28 34" fill="#6A8D63" />
             
             {/* Indigenous Tree (Taller, deep green) */}
             <path d="M22 8 L28 20 L24 20 L27 28 L17 28 L20 20 L16 20 Z" fill="#008D3F" /> {/* Main green */}
@@ -31,17 +27,9 @@ export default function Logo({ textColor }: LogoProps = {}) {
       </div>
       <div>
         <span className="font-heading font-bold text-2xl tracking-tight">
-          {textColor === "text-white" ? (
-            <span className="text-white">LittleForest</span>
-          ) : (
-            <>
-              <span className="text-secondary">Little</span><span className="text-primary">Forest</span>
-            </>
-          )}
+          <span className="text-secondary">Little</span><span className="text-primary">Forest</span>
         </span>
-        <div className={`text-xs ${textColor === "text-white" ? "text-white/70" : "text-foreground/70"} font-medium -mt-1`}>
-          Kenya's Premier Tree Nursery
-        </div>
+        <div className="text-xs text-foreground/70 font-medium -mt-1">Kenya's Premier Tree Nursery</div>
       </div>
     </div>
   );
