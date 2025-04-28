@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    image: "/images/seedlings.jpg",
+    image: "https://images.unsplash.com/photo-1611295619193-511ba6df9bf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     title: "Indigenous Trees Nursery",
     description: "Specializing in native Kenyan tree species for conservation projects, land restoration, and environmental preservation.",
     color: "bg-primary"
@@ -15,7 +15,7 @@ const services = [
     color: "bg-secondary"
   },
   {
-    image: "https://images.unsplash.com/photo-1620055366299-b3e4a0a73826?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    image: "/images/seedlings.jpg",
     title: "Flowers & Herbs Collection",
     description: "Diverse selection of flowers and herbs for gardens, medicinal purposes, and culinary uses, suited to Kenya's climate.",
     color: "bg-accent"
