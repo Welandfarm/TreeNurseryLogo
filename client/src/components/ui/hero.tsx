@@ -39,8 +39,8 @@ export default function Hero() {
             <div className="md:w-1/2">
               <div className="relative rounded-md overflow-hidden shadow-xl bg-white p-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                  alt="Young tree seedlings in a nursery" 
+                  src="/images/seedlings.jpg" 
+                  alt="Young tree seedlings in nursery bags" 
                   className="w-full h-auto object-cover rounded-md"
                 />
               </div>
