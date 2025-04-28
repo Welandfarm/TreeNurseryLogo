@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Logo from "./logo";
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, Mail } from "lucide-react";
+import { Menu, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50">
-      {/* Top contact bar - IFDC inspired */}
+      {/* Top contact bar */}
       <div className="bg-primary text-white py-1 px-4">
         <div className="container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
@@ -24,6 +24,10 @@ export default function Navbar() {
             <div className="hidden sm:flex items-center">
               <Mail className="h-3 w-3 mr-1" />
               <span>info@littleforest.com</span>
+            </div>
+            <div className="hidden md:flex items-center">
+              <MapPin className="h-3 w-3 mr-1" />
+              <span>Nairobi, Kenya</span>
             </div>
           </div>
           <div className="text-xs">

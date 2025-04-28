@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Linkedin, Send } from "lucide-react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -54,69 +54,141 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-16 bg-primary/5">
+    <section id="contact" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">Get In Touch</h2>
-          <div className="w-16 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="max-w-2xl mx-auto text-lg text-neutral-dark/80">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">
+            <span className="text-primary">Get In</span> <span className="text-secondary">Touch</span>
+          </h2>
+          <div className="w-16 h-1 bg-accent mx-auto mb-6"></div>
+          <p className="max-w-2xl mx-auto text-lg text-foreground/80">
             Have questions or ready to start your project? Reach out to our team for expert assistance.
           </p>
         </div>
         
-        <div className="flex flex-col lg:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="lg:w-1/2 p-8 lg:p-12">
-            <h3 className="font-heading font-semibold text-2xl mb-6">Send Us a Message</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 shadow-lg overflow-hidden border border-muted">
+          {/* Contact info sidebar */}
+          <div className="bg-primary p-8 lg:p-10 text-white">
+            <h3 className="font-heading font-semibold text-xl mb-8 border-b border-white/20 pb-4">Contact Information</h3>
+            
+            <div className="space-y-6 mb-10">
+              <div className="flex items-start">
+                <div className="bg-secondary/20 p-3 rounded-md mr-4">
+                  <MapPin className="h-5 w-5 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-white text-sm mb-1">Our Location</h4>
+                  <p className="text-white/80">Nairobi, Kenya</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-secondary/20 p-3 rounded-md mr-4">
+                  <Phone className="h-5 w-5 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-white text-sm mb-1">Phone Number</h4>
+                  <p className="text-white/80">+254 706 932 437</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-secondary/20 p-3 rounded-md mr-4">
+                  <Mail className="h-5 w-5 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-white text-sm mb-1">Email Address</h4>
+                  <p className="text-white/80">info@littleforest.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-secondary/20 p-3 rounded-md mr-4">
+                  <Clock className="h-5 w-5 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-white text-sm mb-1">Hours of Operation</h4>
+                  <p className="text-white/80">Monday-Friday: 8am-5pm</p>
+                  <p className="text-white/80">Saturday: 9am-1pm</p>
+                  <p className="text-white/80">Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="pt-6 border-t border-white/20">
+              <h4 className="font-medium text-sm mb-4">Follow Us</h4>
+              <div className="flex space-x-3">
+                <a href="#" className="bg-secondary/20 hover:bg-secondary p-2 rounded-md transition-colors duration-300">
+                  <Facebook className="text-white h-4 w-4" />
+                </a>
+                <a href="#" className="bg-secondary/20 hover:bg-secondary p-2 rounded-md transition-colors duration-300">
+                  <Instagram className="text-white h-4 w-4" />
+                </a>
+                <a href="#" className="bg-secondary/20 hover:bg-secondary p-2 rounded-md transition-colors duration-300">
+                  <Twitter className="text-white h-4 w-4" />
+                </a>
+                <a href="#" className="bg-secondary/20 hover:bg-secondary p-2 rounded-md transition-colors duration-300">
+                  <Linkedin className="text-white h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Form section */}
+          <div className="lg:col-span-2 bg-white p-8 lg:p-10">
+            <h3 className="font-heading font-semibold text-xl text-foreground mb-6">Send Us a Message</h3>
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-neutral-dark font-medium">Your Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="John Doe" 
-                          className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-neutral-dark font-medium">Email Address</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="john@example.com" 
-                          className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                          type="email"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-foreground/80 font-medium">Your Name</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="John Doe" 
+                            className="px-4 py-2 rounded-md border focus:border-primary"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-foreground/80 font-medium">Email Address</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="john@example.com" 
+                            className="px-4 py-2 rounded-md border focus:border-primary"
+                            type="email"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 
                 <FormField
                   control={form.control}
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-neutral-dark font-medium">Subject</FormLabel>
+                      <FormLabel className="text-foreground/80 font-medium">Subject</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Inquiry about seedlings" 
-                          className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                          className="px-4 py-2 rounded-md border focus:border-primary"
                           {...field} 
                         />
                       </FormControl>
@@ -130,12 +202,12 @@ export default function ContactForm() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-neutral-dark font-medium">Your Message</FormLabel>
+                      <FormLabel className="text-foreground/80 font-medium">Your Message</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Please tell us about your project or inquiry..." 
-                          className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                          rows={5}
+                          className="px-4 py-2 rounded-md border focus:border-primary resize-none"
+                          rows={4}
                           {...field} 
                         />
                       </FormControl>
@@ -144,83 +216,22 @@ export default function ContactForm() {
                   )}
                 />
                 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-heading font-medium py-3 px-6 h-auto rounded-lg transition duration-300 transform hover:scale-[1.02] hover:shadow-md focus:ring-4 focus:ring-primary/30 active:scale-[0.98]"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
+                <div className="pt-2">
+                  <Button 
+                    type="submit" 
+                    className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium py-2 px-6 h-auto rounded-md transition duration-300"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : (
+                      <span className="flex items-center">
+                        Send Message
+                        <Send className="ml-2 h-4 w-4" />
+                      </span>
+                    )}
+                  </Button>
+                </div>
               </form>
             </Form>
-          </div>
-          
-          <div className="lg:w-1/2 bg-primary text-white p-8 lg:p-12 flex flex-col justify-between">
-            <div>
-              <h3 className="font-heading font-semibold text-2xl mb-6">Contact Information</h3>
-              
-              <div className="mb-8">
-                <div className="flex items-start mb-4">
-                  <div className="text-accent mr-4 mt-1">
-                    <MapPin />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Our Location</h4>
-                    <p>Nairobi, Kenya</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start mb-4">
-                  <div className="text-accent mr-4 mt-1">
-                    <Phone />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Phone Number</h4>
-                    <p>+254 706 932 437</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start mb-4">
-                  <div className="text-accent mr-4 mt-1">
-                    <Mail />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Email Address</h4>
-                    <p>info@littleforest.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="text-accent mr-4 mt-1">
-                    <Clock />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Hours of Operation</h4>
-                    <p>Monday-Friday: 8am-5pm</p>
-                    <p>Saturday: 9am-1pm</p>
-                    <p>Sunday: Closed</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-medium mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
-                  <Facebook className="text-white h-5 w-5" />
-                </a>
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
-                  <Instagram className="text-white h-5 w-5" />
-                </a>
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
-                  <Twitter className="text-white h-5 w-5" />
-                </a>
-                <a href="#" className="bg-white/20 hover:bg-accent p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-accent/40 hover:shadow-md">
-                  <Linkedin className="text-white h-5 w-5" />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
