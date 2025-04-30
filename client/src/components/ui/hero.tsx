@@ -37,7 +37,7 @@ export default function Hero() {
                 </Button>
               </div>
               <a 
-                href="https://wa.me/0706932437" 
+                href="https://wa.me/254706932437" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors duration-300 shadow-lg"

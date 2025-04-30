@@ -89,9 +89,9 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-medium text-white text-sm mb-1">Phone Number</h4>
-                  <p className="text-white/80">0706 932 437</p>
+                  <p className="text-white/80">+254 706 932 437</p>
                   <a 
-                    href="https://wa.me/0706932437" 
+                    href="https://wa.me/254706932437" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center text-white bg-[#25D366] hover:bg-[#128C7E] transition-colors duration-300 px-3 py-1 rounded-md mt-2 text-sm font-medium"
