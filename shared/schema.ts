@@ -8,11 +8,13 @@ export const users = pgTable("users", {
   username: text("username").notNull().unique(),
   password: text("password").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
+  isAdmin: boolean("is_admin").default(false).notNull(),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
+  isAdmin: true,
 });
 
 export const contacts = pgTable("contacts", {
@@ -57,6 +59,56 @@ export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
 export type Newsletter = typeof newsletters.$inferSelect;
 
 // Setup relations after all tables are defined
+export const content = pgTable("content", {
+  id: serial("id").primaryKey(),
+  section: text("section").notNull(),
+  key: text("key").notNull(),
+  value: text("value").notNull(),
+  type: text("type").default("text").notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  updatedBy: integer("updated_by").references(() => users.id),
+});
+
+export const insertContentSchema = createInsertSchema(content).omit({
+  updatedAt: true,
+});
+
+export type InsertContent = z.infer<typeof insertContentSchema>;
+export type Content = typeof content.$inferSelect;
+
+export const contentRelations = relations(content, ({ one }) => ({
+  user: one(users, {
+    fields: [content.updatedBy],
+    references: [users.id],
+  }),
+}));
+
+export const images = pgTable("images", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description"),
+  path: text("path").notNull().unique(),
+  section: text("section").notNull(),
+  uploadedAt: timestamp("uploaded_at").defaultNow().notNull(),
+  uploadedBy: integer("uploaded_by").references(() => users.id),
+});
+
+export const insertImageSchema = createInsertSchema(images).omit({
+  uploadedAt: true,
+});
+
+export type InsertImage = z.infer<typeof insertImageSchema>;
+export type Image = typeof images.$inferSelect;
+
+export const imagesRelations = relations(images, ({ one }) => ({
+  user: one(users, {
+    fields: [images.uploadedBy],
+    references: [users.id],
+  }),
+}));
+
 export const usersRelations = relations(users, ({ many }) => ({
   contacts: many(contacts),
+  content: many(content),
+  images: many(images),
 }));
