@@ -1,14 +1,29 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import Logo from "./logo";
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, Phone, Mail, MapPin, User } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logoutMutation } = useAuth();
+  const [location, navigate] = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const handleLogout = () => {
+    logoutMutation.mutate();
+  };
+  
+  const handleAdminClick = () => {
+    navigate("/admin");
+  };
+  
+  const handleLoginClick = () => {
+    navigate("/auth");
   };
 
   return (
@@ -59,6 +74,38 @@ export default function Navbar() {
               <a href="#contact" className="font-heading font-medium text-foreground hover:text-primary transition-colors duration-300">
                 Contact
               </a>
+              
+              {user ? (
+                <>
+                  {user.isAdmin && (
+                    <Button 
+                      variant="outline" 
+                      className="flex items-center gap-1"
+                      onClick={handleAdminClick}
+                    >
+                      <User className="h-4 w-4" />
+                      Admin
+                    </Button>
+                  )}
+                  <Button 
+                    variant="ghost"
+                    onClick={handleLogout}
+                    disabled={logoutMutation.isPending}
+                  >
+                    {logoutMutation.isPending ? "Logging out..." : "Logout"}
+                  </Button>
+                </>
+              ) : (
+                <Button 
+                  variant="outline" 
+                  className="flex items-center gap-1"
+                  onClick={handleLoginClick}
+                >
+                  <User className="h-4 w-4" />
+                  Login
+                </Button>
+              )}
+              
               <Button className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium rounded-md transition duration-300 focus:ring-4 focus:ring-secondary/30">
                 Contact Us
               </Button>
@@ -92,6 +139,39 @@ export default function Navbar() {
                 <a href="#contact" className="font-heading font-medium hover:text-primary transition-colors duration-300">
                   Contact
                 </a>
+                
+                {user ? (
+                  <>
+                    {user.isAdmin && (
+                      <Button 
+                        variant="outline" 
+                        className="flex items-center justify-center gap-1 w-full"
+                        onClick={handleAdminClick}
+                      >
+                        <User className="h-4 w-4" />
+                        Admin Dashboard
+                      </Button>
+                    )}
+                    <Button 
+                      variant="ghost"
+                      className="w-full"
+                      onClick={handleLogout}
+                      disabled={logoutMutation.isPending}
+                    >
+                      {logoutMutation.isPending ? "Logging out..." : "Logout"}
+                    </Button>
+                  </>
+                ) : (
+                  <Button 
+                    variant="outline" 
+                    className="flex items-center justify-center gap-1 w-full"
+                    onClick={handleLoginClick}
+                  >
+                    <User className="h-4 w-4" />
+                    Login / Register
+                  </Button>
+                )}
+                
                 <Button className="bg-secondary hover:bg-secondary/90 text-white font-heading font-medium rounded-md transition duration-300 w-full">
                   Contact Us
                 </Button>
