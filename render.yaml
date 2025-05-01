@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: tree-nursery-app
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm run build
+    startCommand: npm run start
+    rootDir: .
+    autoDeploy: true
