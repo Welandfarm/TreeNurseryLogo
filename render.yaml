@@ -5,7 +5,7 @@ services:
     plan: free
     region: frankfurt
     buildCommand: ./render-build.sh
-    startCommand: npm run start
+    startCommand: ./start.sh
     rootDir: .
     autoDeploy: true
     envVars:
