@@ -2,8 +2,10 @@ import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema, insertNewsletterSchema } from "@shared/schema";
+import * as schema from "@shared/schema";
 import { ZodError } from "zod";
 import { setupAuth } from "./auth";
+import { db } from "./db";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Set up authentication routes and middleware
@@ -52,6 +54,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       return res.status(500).json({
         message: "An error occurred while processing your request"
+      });
+    }
+  });
+  
+  // Get all newsletter subscribers (admin only)
+  app.get("/api/newsletter/all", isAdmin, async (req: Request, res: Response) => {
+    try {
+      const allNewsletters = await db.select().from(schema.newsletters);
+      return res.status(200).json(allNewsletters);
+    } catch (error) {
+      return res.status(500).json({
+        message: "An error occurred while fetching newsletter subscribers"
+      });
+    }
+  });
+  
+  // Get all contact form submissions (admin only)
+  app.get("/api/contact/all", isAdmin, async (req: Request, res: Response) => {
+    try {
+      const allContacts = await db.select().from(schema.contacts);
+      return res.status(200).json(allContacts);
+    } catch (error) {
+      return res.status(500).json({
+        message: "An error occurred while fetching contact submissions"
       });
     }
   });
