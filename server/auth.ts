@@ -113,7 +113,7 @@ export function setupAuth(app: Express) {
   });
 
   app.post("/api/login", (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
+    passport.authenticate("local", (err: Error | null, user: Express.User | false, info: { message: string } | undefined) => {
       if (err) return next(err);
       if (!user) return res.status(401).json({ message: info?.message || "Login failed" });
       
@@ -151,7 +151,7 @@ export function setupAuth(app: Express) {
     try {
       const newContent = await storage.updateContent({
         ...req.body,
-        updatedBy: req.user.id
+        updatedBy: req.user?.id
       });
       res.status(201).json(newContent);
     } catch (error) {
@@ -169,7 +169,7 @@ export function setupAuth(app: Express) {
       const updatedContent = await storage.updateContent({
         ...req.body,
         id: parseInt(req.params.id),
-        updatedBy: req.user.id
+        updatedBy: req.user?.id
       });
       
       res.json(updatedContent);
