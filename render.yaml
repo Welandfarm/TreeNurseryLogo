@@ -1,18 +1,18 @@
+# render.yaml (put this at the root of your repo)
 services:
   - type: web
     name: tree-nursery-app
     env: node
     plan: free
     region: frankfurt
-    buildCommand: ./render-build.sh
-    startCommand: ./start.sh
-    rootDir: .
+    repo: https://github.com/your-username/your-repo   # ← replace
+    root: .             # “.” means this folder (where package.json & vite.config.ts live)
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
     autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        sync: false
       - key: SESSION_SECRET
         generateValue: true
       - key: DATABASE_URL
